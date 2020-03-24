@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Reddish">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -46,7 +46,7 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">Reddish</a></h1>
 		</hgroup>
 		
 
@@ -77,13 +77,9 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="/aquamarinezero" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="mail" target="_blank" href="/1556678196@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -104,7 +100,7 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">Reddish</h1>
 			</hgroup>
 			
 			
@@ -118,13 +114,9 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="/aquamarinezero" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="mail" target="_blank" href="/1556678196@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -152,6 +144,110 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSAPP 01 计算机系统漫游" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/24/CSAPP%2001%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%BC%AB%E6%B8%B8/">CSAPP 01 计算机系统漫游</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/24/CSAPP%2001%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%BC%AB%E6%B8%B8/" class="archive-article-date">
+  	<time datetime="2020-03-24T15:15:49.593Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CSAPP-01-计算机系统漫游"><a href="#CSAPP-01-计算机系统漫游" class="headerlink" title="CSAPP 01 计算机系统漫游"></a>CSAPP 01 计算机系统漫游</h1><h2 id="C语言程序的转化"><a href="#C语言程序的转化" class="headerlink" title="C语言程序的转化"></a>C语言程序的转化</h2><p>1、执行指令</p>
+<p><code>linux&gt; gcc -o hello hello.c</code></p>
+<p>gcc：编译器</p>
+<p>hello.c：源文件</p>
+<p><em>hello</em>：可执行目标程序</p>
+<p>2、执行的四个阶段：<strong>预处理器、编译器、汇编器、链接器</strong></p>
+<p><img src="C:%5CUsers%5CReddish%5CDesktop%5C%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200324204946.png" alt="编译系统"></p>
+<p>预处理器：将include的文件插入，形成hello.i</p>
+<p>编译器：翻译成汇编程序hello.s</p>
+<p>汇编器：翻译成机器语言hello.o</p>
+<p>链接器：合并预编译的文件</p>
+<h2 id="计算机系统硬件组成"><a href="#计算机系统硬件组成" class="headerlink" title="计算机系统硬件组成"></a>计算机系统硬件组成</h2><p>1、总线：在各个部件之间传递信息的通道</p>
+<p>2、I/O设备：系统和外部的联系通道，I/O桥+适配器/控制器+外部设备</p>
+<p>3、主存储器：用于存放程序和程序用到的数据，DRAM组成</p>
+<p>4、处理器：CPU，包括总线接口，ALU（算数逻辑单元），PC（程序计数器：指向指令地址）</p>
+<p>5、cache：加快运行速度，SRAM组成</p>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><img src="C:\Users\Reddish\Desktop\微信截图_20200324223657.png" style="zoom:50%;" />
+
+<p>1、操作系统作用：</p>
+<ul>
+<li><p>防止硬件被失控的应用程序滥用</p>
+</li>
+<li><p>向应用程序提供一样的机制控制低级硬件设备</p>
+</li>
+</ul>
+<p>2、基本抽象概念：</p>
+<ul>
+<li><p>进程：操作系统对运行的程序的一个假象，每个进程好像在单独占用处理器。<strong>并发运行，上下文机制</strong></p>
+<p>一个进程由多个<strong>线程</strong>组成，每个线程都运行在进程的上下文，并共享同样的代码和全局操作</p>
+<p>进程转换由操作系统<strong>内核</strong>kernel管理</p>
+</li>
+<li><p>虚拟内存：操作系统对运行的程序的一个假象，每个进程好像在单独占用主存，有<strong>虚拟地址空间</strong></p>
+</li>
+<li><p>文件：字节序列，I/O设备也可看成文件</p>
+</li>
+</ul>
+<h2 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h2><p>我们想要计算机运行得更快，同时做的事情更多。<strong>并发</strong>指的是具有多个活动的系统，<strong>并行</strong>指的是用并发使一个系统运行得更快。以下由高到低：</p>
+<p>1、线程级并发</p>
+<p><strong>多处理器系统</strong></p>
+<p><strong>超线程</strong>：一个CPU执行多个控制流</p>
+<p>2、指令级并行：同时执行多条指令，<strong>流水线</strong></p>
+<p>3、单指令、多数据并行：一条指令多个并行得操作</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/24/CSAPP%2001%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%BC%AB%E6%B8%B8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-NLP2020-HW1：计算中文的信息熵" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -173,7 +269,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a><em>Abstract</em></h2><p>本文通过构造单词三元组模型，计算该模型与验证样本之间的交叉熵，给出了中文信息熵上界为XXXbit的结论。</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h2 id="Experimental-studies"><a href="#Experimental-studies" class="headerlink" title="Experimental studies"></a>Experimental studies</h2><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
+        
       
 
       
@@ -300,7 +396,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 John Doe
+    		&copy; 2020 Reddish
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
