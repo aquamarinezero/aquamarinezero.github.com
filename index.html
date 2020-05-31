@@ -221,6 +221,130 @@
 
 
   
+    <article id="post-git常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/31/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/31/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2020-05-31T06:52:07.343Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="git使用指南"><a href="#git使用指南" class="headerlink" title="git使用指南"></a>git使用指南</h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p>初始化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>保存至暂存区域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add file.txt</span><br></pre></td></tr></table></figure>
+
+<p>将暂存区域内容保存至branch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;comment&quot;</span><br></pre></td></tr></table></figure>
+
+<p>查看当前状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p>查看快照id</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+
+<h2 id="回到过去"><a href="#回到过去" class="headerlink" title="回到过去"></a>回到过去</h2><p>调出以前提交记录，唯一sha1码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+
+<p>恢复上一个状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD~ &#x2F;&#x2F;本地覆盖</span><br><span class="line">git reset HEAD~ &#x2F;&#x2F;恢复至临时仓库</span><br></pre></td></tr></table></figure>
+
+<h2 id="版本对比"><a href="#版本对比" class="headerlink" title="版本对比"></a>版本对比</h2><p>查找文件不同地方</p>
+<p>比较暂存区域与工作目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure>
+
+<p>— 暂存区域文件</p>
+<p>+++ 工作目录文件</p>
+<p>搜索 /搜索内容</p>
+<p>退出 q</p>
+<p>帮助文件 h</p>
+<p>比较仓库中两个历史快照</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff 快照id1 快照id2</span><br></pre></td></tr></table></figure>
+
+<p>比较当前工作目录和git仓库中的快照</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff 快照id</span><br></pre></td></tr></table></figure>
+
+<p>比较暂存区域和git仓库快照</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached 快照id</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改最后一次提交"><a href="#修改最后一次提交" class="headerlink" title="修改最后一次提交"></a>修改最后一次提交</h2><p>如果对于最后一次提交只有一点点改动，不希望更新大版本快照，可以使用amend命令，修改提交说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend -m &quot;comment&quot;</span><br></pre></td></tr></table></figure>
+
+<p>删除文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git rm file.txt  &#x2F;&#x2F;只是删除工作目录和暂存区域的文件</span><br><span class="line">git rm -f file.txt  &#x2F;&#x2F;工作目录和暂存区域同一文件不同内容，强制删除两个文件</span><br><span class="line">git rm --cached file.txt &#x2F;&#x2F;只删除暂存区域，保存工作目录</span><br><span class="line">git reset --soft HEAD~ &#x2F;&#x2F;回到上一个状态</span><br></pre></td></tr></table></figure>
+
+<p>重命名文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git mv old.txt new.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h2><p>分支：大项目加入新功能 ，创建分支开发，最终合并到master主分支</p>
+<p>创建分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch 分支名</span><br><span class="line">git log --decorate --oneline --graph --all&#x2F;&#x2F;显示各种分支</span><br></pre></td></tr></table></figure>
+
+<p>切换分支，覆盖当前工作目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 分支名</span><br></pre></td></tr></table></figure>
+
+<p>分支的合并，需要解决冲突</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge 分支名</span><br></pre></td></tr></table></figure>
+
+<p>删除分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d 分支名</span><br></pre></td></tr></table></figure>
+
+<p>匿名分支可以随便提交，切换回master不会影响</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/31/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-leetcode：位运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -729,7 +853,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,7 +861,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
               </li>
             
             <div class="clearfix"></div>
