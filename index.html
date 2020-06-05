@@ -144,6 +144,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-招行fintech2020" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/06/%E6%8B%9B%E8%A1%8Cfintech2020/">招行fintech2020</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/06/%E6%8B%9B%E8%A1%8Cfintech2020/" class="archive-article-date">
+  	<time datetime="2020-06-05T17:47:32.270Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="招行fintech训练营2020"><a href="#招行fintech训练营2020" class="headerlink" title="招行fintech训练营2020"></a>招行fintech训练营2020</h1><h2 id="经历回顾"><a href="#经历回顾" class="headerlink" title="经历回顾"></a>经历回顾</h2><ul>
+<li>2020-06-06</li>
+</ul>
+<p>其实说实话，看到这个比赛的信息是在某个焦虑得不行的晚上，面对算法内卷的现状，真的是非常无奈，虽然现在才研一，但是找工作的压力是一直存在的，每天看牛客上的面经感觉自己干啥啥不行，无实习只有实验室水项目水论文，互联网想都不敢想，无意中看到自己感兴趣的金融科技招聘，并且据往年反馈“不难”，所以就抱着见见世面的心态报名了，没想到能拿到夏令营的资格，感谢招行给予的鼓励和信任，争取在夏令营好好表现！朋友们我们7月深圳见！</p>
+<h2 id="产品赛道"><a href="#产品赛道" class="headerlink" title="产品赛道"></a>产品赛道</h2><h3 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h3><p>笔试时间1小时，包含行测题若干（修改病句、逻辑、奥数等），招行常识3道，材料分析两个大题（包含若干选择，环比同比什么的）</p>
+<p>唯一的感觉是时间非常紧张，基本上就是做不完的节奏，第一部分行测题做了三分之二发现就剩20分钟了，匆匆忙忙随便蒙了几个就交了，赶紧做材料分析题，最后压线提交。</p>
+<h3 id="复赛"><a href="#复赛" class="headerlink" title="复赛"></a>复赛</h3><p>没想到能进复赛，产品复赛的时间非常尴尬，在数据赛道中间，并且只有两天的时间，对于我这个产品菜鸡来说时间太太太紧张了，再加上我对产品只是了解个皮毛，看了赛题没什么感觉，最终放弃了治疗，天生大概就不是搞产品的料。</p>
+<p>之前入门产品上了个辅导班，写竞品分析的时候就非常痛苦，看APP真的是非常头疼，我平常用APP基本上就只用核心的功能，别的功能不怎么用……以后大概也不会往产品这方面走吧</p>
+<h2 id="数据赛道"><a href="#数据赛道" class="headerlink" title="数据赛道"></a>数据赛道</h2><h3 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h3><p>题目是信用违约概率预测，标签0不违约，标签1违约，最终给出概率，评价指标为AUC。</p>
+<p>我感觉这个比赛的上分的关键在于<strong>less is more</strong>，抓住关键的特征，做出好的<strong>特征工程</strong>。</p>
+<ul>
+<li><p>数据清洗：相关性分析、RF、XGB处理tag最不重要的几个特征；beh是APP数据，有使用记录的用户只占三分之一，各个点击的类别就更少了，最终只计算了beh的次数；没有处理缺失值</p>
+</li>
+<li><p>特征工程：围绕trd交易数据构建，尝试过的特征包括：交易次数、金额（均值方差总额）、分类别的金额（均值方差）、分类别金额占比、次数占比；后期构建多尺度特征，按照小时、周、月划分，计算以上统计特征，并且计算跨月别的特征值之差（以此来判断两个月之间的交易行为是否差距过大），计算每个用户+X、-X异常交易次数、占比</p>
+</li>
+<li><p>降维：最终只选择分月别金额、类别统计特征，效果奇佳</p>
+</li>
+<li><p>模型：xgboost单模，尝试过多模融合，stacking和voting都尝试过，但是在线下效果真的不行啊，最后也没往线上试；调参，网格调参法；验证，cross validation</p>
+</li>
+<li><p>可改进空间：用户app行为trd行为可采用TF-IDF方式进行分析；多模融合的进一步尝试；挖掘trd异常行为的可能（需要更多交易行为的信息）；tag表的特征构建，比如信用卡数量*天数，拉开特征值的距离</p>
+</li>
+</ul>
+<p>b榜线下0.770，线上0.78384，最终排名10-20之间，倒数第二天的时候排到过第5，不过最后一天被挤下来了，还是有一些小小的遗憾，但是作为比赛新手，这个成绩还是非常满意的了</p>
+<h3 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h3><p>标准时间，面试13分钟，技术+hr 2v1，视频面试，感觉自己太紧张了语速很快答得不是特别好，但是最终还是给了夏令营offer，可能银行综合考虑了学历+比赛成绩+面试多方面因素吧，以后还是要多多面试锻炼自己叙述的能力！</p>
+<ul>
+<li>技术</li>
+</ul>
+<p>1.自我介绍</p>
+<p>2.比赛你是怎么做的</p>
+<p>3.特征是怎么处理的</p>
+<p>4.随机森林和xgboost的区别</p>
+<ul>
+<li>hr</li>
+</ul>
+<p>1.家是在XX，以后怎么规划的</p>
+<p>2.学XX的，为什么想做金融科技</p>
+<p>3.为此付出的努力，做了哪些计划</p>
+<p>4.有没有项目支撑，是导师要求做的吗</p>
+<p>5.这其中遇到的困难，怎么解决的</p>
+<p>6.有没有时间参加训练营</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/06/%E6%8B%9B%E8%A1%8Cfintech2020/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-机器学习问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
